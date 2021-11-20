@@ -1,0 +1,53 @@
+:root {
+
+  --bg: #fff;
+
+  //menu、stepper與結帳、付款資訊、購物籃、購物籃商品名稱、運費、小計
+  --gray-title: #2a2a2a;
+
+  //number、金額、運費項目、工作天數、上一步
+  --emphasize: #000000;
+
+  --white: #fff;
+  //disabled
+  --gray-1: #afb1bd;
+  //表單預設內容
+  --gray-2: #999999;
+  //表單標籤
+  --gray-3: #808080;
+
+  --gray-4: #4a4a4a;
+  //footer
+  --bg-gray: #e5e5e5;
+
+  //underline bg-light-gray
+  --bg-light-gray: #f0f0f5;
+
+  //按鈕
+  --bg-pink: #f67599;
+
+  --dark: #333333;
+}
+
+// $colors: (bg-header-color: var(--bg),
+//   bg-color: var(--bg),
+//   body-color:var(--gray-title),
+//   bg-dark: var(--emphasize),
+//   bg-light-gray: var(--bg-light-gray),
+//   text-gray: var(--gray-3),
+//   white: var(--white),
+//   dark: #333333,
+//   button-next-active: #f67599,
+//   button-next-font: var(--white),
+//   button-prev-font: var(--emphasize),
+//   dark-gray: #4a4a4a,
+//   secondary-gray: var(--gray-2),
+//   light-gray: var(--gray-1),
+//   slight-gray: var(--bg-light-gray),
+//   bg-gray: var(--bg-gray),
+//   footer-item-title: var(--gray-title),
+//   footer-item-content: var(--gray-3));
+
+// @function colors($color-var-name) {
+//   @return map-get($colors, $color-var-name)
+// }
