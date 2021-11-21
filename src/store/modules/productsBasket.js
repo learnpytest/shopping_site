@@ -13,13 +13,16 @@ import {
   SET_AMOUNT_TO_CHECKOUT,
 } from "../store-types";
 
-// utility
-const reducer = (previousValue, currentValue) =>
-  previousValue.price + currentValue.price;
-
 // defaul value that gets from persisted value
+let basketTotalPricePersisted = 0;
 const basketPersisted = window.localStorage.getItem(STORAGEKEY);
-const basketTotalPricePersisted = JSON.parse(basketPersisted).reduce(reducer);
+JSON.parse(basketPersisted).forEach((product) => {
+  if (product.price) {
+    console.log(product.price);
+    basketTotalPricePersisted += product.price;
+  }
+  return basketTotalPricePersisted;
+});
 
 const state = {
   basket: basketPersisted ? JSON.parse(basketPersisted) : [],

@@ -1,6 +1,6 @@
 <template>
   <div class="form--address">
-    <div class="form__title">寄送地址payment</div>
+    <div class="form__title">寄送地址</div>
     <div class="form__group form--address__group">
       <div class="form__row form--address__row">
         <label>稱謂</label>
