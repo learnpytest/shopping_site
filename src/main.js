@@ -21,6 +21,18 @@ Vue.use(BootstrapVue);
 Vue.use(IconsPlugin);
 Vue.use(BootstrapVueIcons);
 
+// Make suer service worker supported by browser then register
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker
+      .register("/cache_site.js")
+      .then(() => {
+        console.log("Service Worker: Registered");
+      })
+      .catch((err) => console.log(`Service Worker: Error: ${err}`));
+  });
+}
+
 new Vue({
   store,
   router,
