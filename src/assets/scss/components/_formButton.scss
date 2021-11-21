@@ -1,0 +1,69 @@
+@import "../abstracts/_mixins";
+@import "../abstracts/_fonts";
+
+//手機
+.form__button-control {
+  height: 70px;
+  width: 100%;
+  @include display-setting(flex, center, flex-end);
+
+  margin: 2em 0 2.5em 0;
+  border-top: 1px solid #e6e6eb;
+
+  .btn {
+    height: 3rem;
+    flex: 1;
+    cursor: pointer;
+  }
+
+  &__button--primary {
+    // button-next-active
+    background-color: var(--bg-pink);
+    border-radius: 8px;
+
+    // 字型  button-next-font
+    @include font-setting(0.75rem, 500, var(--white));
+
+    &::after {
+      content: "\2192";
+      font-size: 1.25rem;
+      margin-left: 13px;
+    }
+
+    &.last-step {
+
+      //     在最後一步將按鈕改成確認下單以後必須要移除偽元素
+      &::after {
+        content: "";
+      }
+    }
+  }
+
+  &__button--outline {
+    // button-prev-font
+    color: var(--emphasize);
+    text-align: start;
+
+    &::before {
+      content: "\2190";
+      margin-right: 12px;
+      margin-left: 13px;
+      font-size: 1.25rem;
+    }
+  }
+
+  //桌機
+  @include desktop {
+    width: 80%;
+    margin-bottom: 48px;
+    justify-content: space-between;
+
+    .btn {
+      flex: 0 0 40%;
+    }
+
+    &.display-one-btn {
+      justify-content: flex-end;
+    }
+  }
+}

@@ -1,0 +1,63 @@
+@import "../assets/scss/abstracts/_mixins";
+@import "../assets/scss/abstracts/_fonts";
+
+// todo
+@mixin font-style-footer {
+  li {
+    margin-bottom: 8px;
+  }
+
+  li a {
+    text-decoration: unset;
+    font-size: 1rem;
+    line-height: 1rem;
+    color: var(--gray-3);
+  }
+
+  li:nth-child(1) .nav-link {
+    margin-bottom: 1.5em;
+    line-height: 1.5rem;
+    @include font-setting(1.5rem, 700, var(--bg-title));
+
+  }
+}
+
+footer {
+  display: none;
+
+  @include desktop {
+    //footer樣式
+    max-width: 100vw;
+    // expect height: 284px;
+    min-height: fit-content;
+    margin-top: 7.5em;
+    overflow: auto;
+    padding: 4em 5em 2em 4em;
+    background-color: var(--bg-gray);
+    display: grid;
+    grid-auto-flow: column;
+
+    //footer裡面的文字字型
+    @include font-style-footer;
+
+    //清除並重設site logo樣式
+    .site-logo-wrapper {
+      all: unset;
+      @include display-setting(grid, center, center);
+      width: 175px;
+
+      img {
+        height: 31px;
+      }
+    }
+
+    ul {
+      @include display-setting(flex, flex-start, center);
+      flex-direction: column;
+
+      li:nth-child(1) .nav-link {
+        margin-bottom: 1em;
+      }
+    }
+  }
+}
