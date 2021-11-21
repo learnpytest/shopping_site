@@ -31,6 +31,10 @@
   </div>
 </template>
 <script>
+import { mapActions } from "vuex";
+
+import { SET_SHIPMENT_FEE } from "@/store/store-types.js";
+
 export default {
   name: "FormShipment",
   data() {
@@ -38,26 +42,15 @@ export default {
       method: "",
     };
   },
-  created() {
-    this.method = this.$store.state.shipping.method;
-  },
-  watch: {
-    method: {
-      handler() {
-        this.$store.state.shipping.method = this.method;
-        switch (this.method) {
-          case "standard":
-            this.$store.state.shipping.fee = 0;
-            break;
-          case "dhl":
-            this.$store.state.shipping.fee = 500;
-            break;
-          default:
-            this.$store.state.shipping.fee = 0;
-        }
-      },
-      deep: true,
+
+  methods: {
+    ...mapActions({
+      setShipmentFee: SET_SHIPMENT_FEE,
+    }),
+    onShipmentTypeSelected(newValue) {
+      this.setShipmentFee(newValue);
     },
   },
+  watch: { method: "onShipmentTypeSelected" },
 };
 </script>

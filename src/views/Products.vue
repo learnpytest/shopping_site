@@ -1,7 +1,6 @@
 <template>
   <main style="padding: 0 10%">
     <div class="products products--all">
-      <h1 class="products__title">Products</h1>
       <div id="productsAll" class="products__list products--all__list">
         <!-- products -->
         <div
@@ -24,18 +23,12 @@
                   role="button"
                   class="btn btn-danger product__count--add"
                   @click.stop.prevent="
-                    setProductsBasket({ product, type: 'ADD_TO_BASKET' })
+                    addProductToBasket({
+                      product,
+                      quantity: 1,
+                    })
                   "
                   >加到購物籃</span
-                >
-
-                <span
-                  role="button"
-                  class="btn btn-danger product__count--add"
-                  @click.stop.prevent="
-                    setProductsBasket({ product, type: 'REMOVE_FROM_BASKET' })
-                  "
-                  >從購物籃移除</span
                 >
               </div>
             </div>
@@ -54,11 +47,12 @@ import {
   GET_PRODUCTS,
   SET_PRODUCTS,
   GET_PRODUCTS_BASKET,
-  SET_PRODUCTS_BASKET,
+  ADD_TO_BASKET,
 } from "../store/store-types";
 
 export default {
   name: "Products",
+
   computed: {
     ...mapGetters({
       products: GET_PRODUCTS,
@@ -73,7 +67,7 @@ export default {
       setProducts: SET_PRODUCTS,
     }),
     ...mapActions({
-      setProductsBasket: SET_PRODUCTS_BASKET,
+      addProductToBasket: ADD_TO_BASKET,
     }),
   },
   created() {

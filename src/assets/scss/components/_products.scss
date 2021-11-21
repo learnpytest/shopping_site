@@ -4,10 +4,12 @@
 //購物籃
 .products {
   height: 35%;
+  border: 1px solid rgba($color: #ccc, $alpha: 1);
+  padding: 1.25em 1em 1em 1em;
+  border-radius: 14px;
 
   &__title {
     //  購物籃中的物品列表與物品中間保留空間
-    padding: 1.25em 1em 1em 1em;
   }
 
   &__title {
@@ -71,7 +73,7 @@
   }
 
   @include desktop {
-    padding: 2em 1.5em;
+    // padding: 2em 1.5em;
     flex: 0 1 40%;
 
     .products__title {
