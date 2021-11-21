@@ -1,0 +1,196 @@
+@import "../assets/scss/abstracts/_mixins";
+@import "../assets/scss/abstracts/_fonts";
+
+.form {
+  //寄送地址、運送方式、付款資訊
+  &__title {
+    margin-bottom: 1.5em;
+    @include font-setting(1.5rem, 700, var(--gray-title));
+  }
+
+  &__group {
+    @include display-setting(flex, null, null);
+    flex-direction: column;
+    margin-bottom: 0.5em;
+  }
+
+  &__row {
+    margin-bottom: 1em;
+
+    > label {
+      display: block;
+      margin-bottom: 0.5rem;
+      @include font-setting(0.75rem, 700, var(--gray-3));
+    }
+
+    input {
+      @extend %input-style;
+
+      &[type="radio"] {
+        -webkit-appearance: none;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        border-color: var(--gray-title);
+        padding: 0;
+        margin: 0 20px 0 0;
+        cursor: pointer;
+
+        &:checked {
+          box-shadow: inset 0 0 0 6px var(--gray-title);
+        }
+
+        ~ label {
+          margin: 0;
+          width: 100%;
+          position: relative;
+          @include display-setting(flex, space-between, center);
+          @include font-setting(14px, 400, var(--emphasize));
+
+          .label--wrapper {
+            @include display-setting(flex, center, null);
+            flex-direction: column;
+          }
+          .label--time {
+            font-size: 0.8rem;
+          }
+        }
+      }
+    }
+
+    .select-wrapper {
+      position: relative;
+      z-index: 0;
+
+      //下拉選單三角形
+      &::after {
+        content: "";
+        border-style: solid;
+        border-width: 5px 4.5px 0 4.5px;
+        border-color: var(--gray-title) transparent transparent transparent;
+        position: absolute;
+        top: 50%;
+        right: 18px;
+        transform: translateY(-50%);
+        z-index: -1;
+      }
+    }
+
+    select {
+      -webkit-appearance: none;
+      @extend %input-style;
+      cursor: pointer;
+      background-color: transparent;
+      // 下拉選單的內容在選擇後的改成醒目字型樣式
+    }
+  }
+
+  &--address {
+    &__group:nth-child(2) {
+      flex-direction: row;
+
+      .form__row {
+        flex: 1;
+      }
+
+      .form__row:first-child {
+        flex: 0 0 38%;
+        margin-right: 30px;
+      }
+    }
+  }
+
+  //運送方式
+  &--shipment {
+    height: 192px;
+    margin-bottom: 1em;
+
+    &__row {
+      padding: 0 0.5em;
+
+      &:hover {
+        border: 1px solid var(--gray-title);
+        border-radius: 4px;
+      }
+
+      height: 4em;
+      margin-bottom: 1.5em;
+      padding: 0 2em 0 1.52m;
+    }
+  }
+
+  //付款資訊
+  &--method {
+    &__group:last-child {
+      flex-direction: row;
+      .form__row {
+        flex: 1 1 50%;
+      }
+
+      .form__row:last-child {
+        margin-left: 30px;
+      }
+    }
+  }
+}
+
+.container--payments {
+  h2 {
+    margin-bottom: 1.5rem;
+  }
+  @include desktop {
+    flex: auto;
+    height: 530px;
+
+    .form {
+      //讓按鈕與購物籃相對對齊可以在適當的相對位置出現
+      position: relative;
+
+      &__innercontainer {
+        width: 80%;
+
+        height: 288px;
+        margin-right: 9%;
+      }
+
+      &--address {
+        &__group {
+          flex-direction: row;
+        }
+
+        &__row {
+          flex: 1;
+          margin-bottom: 0;
+        }
+
+        &__row:first-child {
+          margin-right: 2em;
+        }
+
+        &__group:nth-child(2),
+        &__group:last-child {
+          .form__row:first-child {
+            flex: 0 0 30%;
+          }
+        }
+      }
+
+      &--method {
+        &__group:nth-child(2) {
+          flex-direction: row;
+          flex-wrap: wrap;
+
+          .form__row {
+            flex: 0 0 65%;
+            margin-bottom: 0.5em;
+          }
+        }
+      }
+
+      &__wrapper {
+        display: flex;
+        width: 100%;
+      }
+    }
+  }
+}

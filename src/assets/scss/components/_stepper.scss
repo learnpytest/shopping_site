@@ -1,0 +1,153 @@
+  @import "../assets/scss/abstracts/_mixins";
+  @import "../assets/scss/abstracts/_fonts";
+
+  .stepper-panel {
+
+    &__title {
+      @include font-setting(1.5rem, 700, var(--gray-title));
+      line-height: 38px;
+    }
+
+    &__stepper-wrapper {
+      display: flex;
+      padding: 24px 0;
+      text-align: center;
+
+      .step {
+        .step__label {
+          display: none;
+        }
+
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        position: relative;
+        @include setStepNums(3);
+
+        &:first-child {
+          justify-content: flex-start;
+        }
+
+        &:last-child {
+          justify-content: flex-end;
+        }
+
+        .circle-container {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          width: 32px;
+          height: 32px;
+          border: 1px solid var(--gray-1);
+          border-radius: 50%;
+          @include font-setting(1rem, 700, var(--gray-1));
+        }
+
+        .connect-line {
+          display: block;
+          height: 1px;
+          position: absolute;
+          top: 16px;
+          background-color: var(--gray-1);
+
+          right: calc(50% + 48px);
+          left: calc(-100% + 64px);
+        }
+
+        &:last-child .connect-line {
+          right: 64px;
+          left: calc(-50% + 48px);
+        }
+
+        &.checked,
+        &.active {
+          .circle-container {
+            background-color: var(--emphasize);
+            color: var(--bg);
+          }
+
+          .connect-line {
+            border: 2px solid var(--emphasize);
+            background: var(--emphasize);
+
+          }
+        }
+
+        &.checked {
+          .circle-container:after {
+            content: '\2713';
+            color: var(--bg);
+          }
+        }
+
+        &.active {
+          .circle-container {
+            background-color: var(--gray-title);
+          }
+        }
+      }
+    }
+  }
+
+
+  // media query
+  @include desktop {
+    %title-screen-style {
+      @include font-setting(2rem, 700, var(--gray-title));
+    }
+
+    main .stepper-panel {
+      width: 80%;
+
+      &__title {
+        @extend %title-screen-style;
+      }
+
+      &__stepper-wrapper {
+
+        padding: 0 0 4em 0;
+
+
+        .step {
+
+          @include display-setting(flex, center, center);
+          position: relative;
+          z-index: 1;
+
+          .step__label {
+            display: inline-block;
+            width: 70px;
+          }
+
+          .circle-container {
+            background-color: #fff;
+            width: 1.5em;
+            height: 1.5em;
+            font-size: 0.75rem;
+          }
+
+          .label-container {
+            display: inline-block;
+            margin-left: 0.7rem;
+            @include font-setting(1rem, normal, var(--gray-title));
+          }
+
+          .connect-line {
+            position: absolute;
+            top: 50%;
+            left: calc(-75% + 70px);
+            right: 95%;
+            bottom: 0;
+            height: 2px;
+            z-index: -1;
+          }
+
+          &:last-child .connect-line {
+            left: -8%;
+            right: calc(30% + 70px);
+          }
+        }
+      }
+    }
+
+  }
