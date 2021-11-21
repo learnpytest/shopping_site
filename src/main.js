@@ -1,8 +1,6 @@
 import Vue from "vue";
-// import Vuex from "vuex";
 import App from "./App.vue";
 import router from "./router";
-
 import store from "./store";
 
 import "bootstrap";
@@ -15,32 +13,26 @@ import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap-vue/dist/bootstrap-vue.css";
 import "bootstrap-vue/dist/bootstrap-vue-icons.min.css";
 
+import "../src/assets/scss/icomoon-v1.0/style.css";
+
 Vue.config.productionTip = false;
 
 Vue.use(BootstrapVue);
 Vue.use(IconsPlugin);
 Vue.use(BootstrapVueIcons);
-// Vue.use(Vuex);
 
-// const store = new Vuex.Store({
-//   state: {
-//     goodsInChart: [],
-//     shipping: {
-//       method: "standard",
-//       fee: 0,
-//     },
-//   },
-//   actions: {
-//     getGoodsInChart(context) {
-//       context.commit("mutationGetGoodsInChart", goodsInChart);
-//     },
-//   },
-//   mutations: {
-//     mutationGetGoodsInChart(state, payload) {
-//       state.goodsInChart = payload;
-//     },
-//   },
-// });
+// Make suer service worker supported by browser then register
+if ("serviceWorker" in navigator) {
+  console.log("Service Worker Supported");
+  window.addEventListener("load", () => {
+    navigator.serviceWorker
+      .register("/cache_site.js")
+      .then(() => {
+        console.log("Service Worker: Registered");
+      })
+      .catch((err) => console.log(`Service Worker: Error: ${err}`));
+  });
+}
 
 new Vue({
   store,

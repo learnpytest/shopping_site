@@ -3,7 +3,7 @@
     id="form__button-control"
     :class="[
       'form__button-control',
-      { 'display-one-btn': currentStep === 'form-address' },
+      { 'display-one-btn': stepNow === 'address' },
     ]"
   >
     <router-link

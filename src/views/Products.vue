@@ -19,11 +19,23 @@
               <div class="product__name">{{ product.title }}</div>
               <div class="product__control">
                 <span>{{ product.qyantity }}</span>
+
                 <span
                   role="button"
                   class="btn btn-danger product__count--add"
-                  @click.stop.prevent="addToBasket(product)"
-                  >加到購物車</span
+                  @click.stop.prevent="
+                    setProductsBasket({ product, type: 'ADD_TO_BASKET' })
+                  "
+                  >加到購物籃</span
+                >
+
+                <span
+                  role="button"
+                  class="btn btn-danger product__count--add"
+                  @click.stop.prevent="
+                    setProductsBasket({ product, type: 'REMOVE_FROM_BASKET' })
+                  "
+                  >從購物籃移除</span
                 >
               </div>
             </div>
@@ -41,22 +53,27 @@ import { mapGetters, mapActions } from "vuex";
 import {
   GET_PRODUCTS,
   SET_PRODUCTS,
-  ADD_TO_BASKET,
+  GET_PRODUCTS_BASKET,
+  SET_PRODUCTS_BASKET,
 } from "../store/store-types";
-console.log(ADD_TO_BASKET);
+
 export default {
   name: "Products",
   computed: {
     ...mapGetters({
       products: GET_PRODUCTS,
+      productsBasket: GET_PRODUCTS_BASKET,
     }),
+    foundInBasket(product) {
+      return this.productsBasket.find((item) => item.id === product.id);
+    },
   },
   methods: {
     ...mapActions({
       setProducts: SET_PRODUCTS,
     }),
     ...mapActions({
-      addToBasket: ADD_TO_BASKET,
+      setProductsBasket: SET_PRODUCTS_BASKET,
     }),
   },
   created() {

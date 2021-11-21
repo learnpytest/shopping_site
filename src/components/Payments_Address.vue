@@ -1,8 +1,8 @@
 <template>
-  <div class="form__content--address">
+  <div class="form--address">
     <div class="form__title">寄送地址payment</div>
-    <div class="form-group">
-      <div class="form-row">
+    <div class="form__group form--address__group">
+      <div class="form__row form--address__row">
         <label>稱謂</label>
         <div class="select-wrapper">
           <select
@@ -16,7 +16,7 @@
           </select>
         </div>
       </div>
-      <div class="form-row">
+      <div class="form__row form--address__row">
         <label for="a-name">姓名</label>
         <input
           id="a-name"
@@ -27,8 +27,8 @@
         />
       </div>
     </div>
-    <div class="form-group">
-      <div class="form-row">
+    <div class="form__group form--address__group">
+      <div class="form__row form--address__row">
         <label for="a-phone">電話</label>
         <input
           id="a-phone"
@@ -38,7 +38,7 @@
           v-model="currentEditFormAddress.phone"
         />
       </div>
-      <div class="form-row">
+      <div class="form__row form--address__row">
         <label for="a-email">Email</label>
         <input
           id="a-email"
@@ -49,8 +49,8 @@
         />
       </div>
     </div>
-    <div class="form-group">
-      <div class="form-row">
+    <div class="form__group form--address__group">
+      <div class="form__row form--address__row">
         <label>縣市</label>
         <div class="select-wrapper">
           <select
@@ -66,7 +66,7 @@
           </select>
         </div>
       </div>
-      <div class="form-row">
+      <div class="form__row form--address__row">
         <label for="a-address">地址</label>
         <input
           id="a-address"

@@ -1,30 +1,30 @@
 <template>
-  <div class="form__content--shipment">
+  <div class="form--shipment">
     <div class="form__title">運送方式</div>
-    <div id="tr-methods" class="form-group">
-      <div class="form-row d-flex align-items-center">
+    <div id="tr-methods" class="form__group form--shipment__group">
+      <div class="form__row form--shipment__row d-flex align-items-center">
         <input
           name="tr-method"
           type="radio"
           value="standard"
           v-model="method"
         />
-        <label for="">
-          <div class="tr-method__label__main">
-            <div class="tr-method-label">標準運送</div>
-            <div class="tr-method-time">約3~7個工作天</div>
+        <label for="" class="label">
+          <div class="label--wrapper">
+            <div class="label--type">標準運送</div>
+            <div class="label--time">約3~7個工作天</div>
           </div>
-          <div class="tr-method__label__right">免費</div>
+          <div class="label--fee">免費</div>
         </label>
       </div>
-      <div class="form-row d-flex align-items-center">
+      <div class="form__row form--shipment__row d-flex align-items-center">
         <input name="tr-method" type="radio" value="dhl" v-model="method" />
-        <label for="">
-          <div class="tr-method__label__main">
-            <div class="tr-method-label" style="font-weight: 700">DHL貨運</div>
-            <div class="tr-method-time">48小時內送達</div>
+        <label for="" class="label">
+          <div class="label--wrapper">
+            <div class="label--type" style="font-weight: 700">DHL貨運</div>
+            <div class="label--time">48小時內送達</div>
           </div>
-          <div class="tr-method__label__right">$500</div>
+          <div class="label--fee">$500</div>
         </label>
       </div>
     </div>

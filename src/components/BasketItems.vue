@@ -40,12 +40,12 @@
 
 <script>
 import { mapGetters } from "vuex";
-import { GET_CURRENT_BASKET } from "../store/store-types";
+import { GET_PRODUCTS_BASKET } from "../store/store-types";
 
 export default {
   name: "BasketItems",
   computed: {
-    ...mapGetters({ basket: GET_CURRENT_BASKET }),
+    ...mapGetters({ basket: GET_PRODUCTS_BASKET }),
   },
 };
 </script>

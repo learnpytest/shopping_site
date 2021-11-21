@@ -6,7 +6,7 @@
         <form id="formPayments" class="form form--payments">
           <Stepper />
           <div class="form__wrapper">
-            <div class="form__content">
+            <div class="form__innercontainer">
               <router-view />
               <!-- address -->
               <!-- shipment -->

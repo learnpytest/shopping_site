@@ -1,8 +1,8 @@
 <template>
-  <div class="form__content--method">
+  <div class="form--method">
     <div class="form__title">付款資訊</div>
-    <div class="form-group">
-      <div class="form-row">
+    <div class="form__group form--method__group">
+      <div class="form__row form--method__row">
         <label for="cardholder-name">持卡人姓名</label>
         <input
           id="cardholder-name"
@@ -12,7 +12,7 @@
           v-model="currentEditFormPayment.cardHolder"
         />
       </div>
-      <div class="form-row">
+      <div class="form__row form--method__row">
         <label for="credit-card">卡號</label>
         <input
           id="credit-card"
@@ -23,8 +23,8 @@
         />
       </div>
     </div>
-    <div class="form-group">
-      <div class="form-row">
+    <div class="form__group form--method__group">
+      <div class="form__row form--method__row">
         <label>有效期限</label
         ><input
           id="expire-date"
@@ -36,7 +36,7 @@
           v-model="currentEditFormPayment.expireDate"
         />
       </div>
-      <div class="form-row">
+      <div class="form__row form--method__row">
         <label for="a-address">CVC / CCV</label>
         <input
           id="cvc-ccv"
