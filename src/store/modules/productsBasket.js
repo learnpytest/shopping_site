@@ -15,8 +15,8 @@ import {
 
 // defaul value that gets from persisted value
 let basketTotalPricePersisted = 0;
-const basketPersisted = window.localStorage.getItem(STORAGEKEY);
-JSON.parse(basketPersisted).forEach((product) => {
+const basketPersisted = window.localStorage.getItem(STORAGEKEY) || [];
+basketPersisted.forEach((product) => {
   if (product.price) {
     console.log(product.price);
     basketTotalPricePersisted += product.price;
@@ -25,7 +25,7 @@ JSON.parse(basketPersisted).forEach((product) => {
 });
 
 const state = {
-  basket: basketPersisted ? JSON.parse(basketPersisted) : [],
+  basket: basketPersisted.length ? JSON.parse(basketPersisted) : [],
   basketTotalPrice: basketTotalPricePersisted ? basketTotalPricePersisted : 0,
   shipmentType: {
     standard: 0,
